@@ -6,6 +6,18 @@ const createBloodRequestInDB = async(payload:Partial<BloodRequest>) => {
     return result;
 }
 
+const getAllBloodRequestsFromDB = async() => {
+    const result = await BloodRequestModel.find();
+    return result;
+}
+
+const deleteBloodRequestFromDB = async(id:string) => {
+    const result = await BloodRequestModel.findByIdAndDelete(id);
+    return result;
+}
+
 export const BloodRequestService = {
-    createBloodRequestInDB
+    createBloodRequestInDB,
+    getAllBloodRequestsFromDB,
+    deleteBloodRequestFromDB
 };
